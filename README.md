@@ -51,16 +51,14 @@ MONGODB_URI=mongodb://localhost:27017/auth_system
 
 1. Start the backend server:
 ```bash
-npm run server
-# or
-yarn server
+npm run dev:server
+
 ```
 
 2. In a new terminal, start the frontend development server:
 ```bash
 npm run dev
-# or
-yarn dev
+
 ```
 
 3. Open your browser and navigate to `http://localhost:3000`
@@ -77,25 +75,3 @@ src/
 ├── pages/             # Next.js pages
 └── server/            # Backend server code
 ```
-
-## Security Features
-
-- Password hashing with bcrypt
-- JWT token-based authentication
-- Account locking after 5 failed attempts
-- Secure password validation
-- Protected GraphQL endpoints
-- CORS enabled
-- Environment variable configuration
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details. 
