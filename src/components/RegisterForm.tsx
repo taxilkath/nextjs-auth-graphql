@@ -55,6 +55,7 @@ export const RegisterForm: React.FC = () => {
   const onSubmit = async (data: RegisterFormData) => {
     setError(null);
     try {
+      // Hash password with SHA-256 before sending
       const hashedPassword = SHA256(data.password).toString();
       await registerMutation({
         variables: {

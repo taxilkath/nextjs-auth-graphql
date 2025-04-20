@@ -42,9 +42,11 @@ export const LoginForm: React.FC = () => {
 
   const [loginMutation, { loading }] = useMutation(LOGIN_MUTATION, {
     onCompleted: (data) => {
+      console.log('Login successful:', data.login.user.email);
       login(data.login.token, data.login.user);
     },
     onError: (error) => {
+      console.error('Login error:', error.message);
       setError(error.message);
     },
   });
@@ -52,7 +54,10 @@ export const LoginForm: React.FC = () => {
   const onSubmit = async (data: LoginFormData) => {
     setError(null);
     try {
+      console.log('Attempting login for:', data.email);
+      // Hash password with SHA-256 before sending
       const hashedPassword = SHA256(data.password).toString();
+      console.log('Password hashed, sending login request');
       await loginMutation({
         variables: {
           email: data.email,
@@ -60,6 +65,7 @@ export const LoginForm: React.FC = () => {
         },
       });
     } catch (err) {
+      console.error('Login exception:', err);
     }
   };
 
